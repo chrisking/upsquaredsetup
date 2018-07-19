@@ -8,7 +8,7 @@ Once installing the Intel wifi adapter the wireless tools and WPA support will n
 
 After validating that the device has a valid internet connection via ethernet, enter the following commands:
 
-```
+```shell
 sudo apt-get update
 sudo apt-get install -y wpasupplicant wireless-tools
 ```
@@ -17,7 +17,7 @@ sudo apt-get install -y wpasupplicant wireless-tools
 
 First identify the wireless adapter name with:
 
-```
+```shell
 sudo iwconfig
 ```
 
@@ -25,14 +25,14 @@ For the rest of this documentation and the scripts in this repository we will as
 
 Next insert the base content for your wireless adapter:
 
-```
+```shell
 sudo echo "auto wlp4s0" >> /etc/network/interfaces
 sudo echo "iface wlp4s0 inet dhcp" >> /etc/network/interfaces
 ```
 
 After those packages are installed you need to configure the connection to the wireless network. Please update the command below with your values then execute it on the device:
 
-```
+```shell
 wpa_passphrase MYSSID MySecretPassphrase | grep -vE "{|#|}" | tr -d '\t' | sudo tee -a /etc/network/interfaces
 ```
 
@@ -41,7 +41,7 @@ Also
 
 All that remains is to reboot the device with:
 
-```
+```shell
 sudo reboot
 ```
 
@@ -54,7 +54,7 @@ The shell scripts included in this library can be loaded onto external USB drive
 
 The commands to mount and execute the scripts:
 
-```
+```shell
 sudo mkdir /mnt/usb
 sudo mount /dev/sda1 /mnt/usb
 cd /mnt/usb
