@@ -23,16 +23,13 @@ sudo iwconfig
 
 For the rest of this documentation and the scripts in this repository we will assume it is `wlp4s0`.
 
-After those packages are installed and the wireless interface is known, add the following contnet to the the end of your `/etc/network/interfaces` file:
+After those packages are installed you need to configure the connection to the wireless network. Please update the command below with your values then execute it on the device:
 
 ```
-auto wlp4s0
-iface wlp4s0 inet dhcp
-    wpa-ssid SSID-HERE
-    wpa-psk WPA-PASSCODE-HERE
+wpa_passphrase MYSSID MySecretPassphrase | grep -vE "{|#|}" | tr -d '\t' | sudo tee -a /etc/network/interfaces
 ```
 
-Note the file will need to be edited as root so use the commands `sudo vim /etc/network/interfaces` or `sudo nano /etc/network/interfaces`.
+Also 
 
 
 All that remains is to reboot the device with:
