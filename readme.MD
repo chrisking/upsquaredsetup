@@ -23,6 +23,13 @@ sudo iwconfig
 
 For the rest of this documentation and the scripts in this repository we will assume it is `wlp4s0`.
 
+Next insert the base content for your wireless adapter:
+
+```
+sudo echo "auto wlp4s0" >> /etc/network/interfaces
+sudo echo "iface wlp4s0 inet dhcp" >> /etc/network/interfaces
+```
+
 After those packages are installed you need to configure the connection to the wireless network. Please update the command below with your values then execute it on the device:
 
 ```
@@ -57,5 +64,6 @@ cd /mnt/usb
 Note that the `./setup.sh` assumes that you are executing that particular script, replace it with whatever script is needed.
 
 
-1. Full Setup: `setup.sh` this file will ensure that all of the above steps are followed and the device is fully prepped. Before use ensure that you ahve updated the SSID and PASSCODE portions to be the values needed.
+1. Full Setup: `setup.sh` this file will ensure that all of the above steps are followed and the device is fully prepped. Before use ensure that you ahve updated the MYSSID and MySecretPassphrase portions to be the values needed.
 2. Just Packages: `package_setup.sh` will just install the wireless packages but not configure a network.
+
