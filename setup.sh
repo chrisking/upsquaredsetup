@@ -14,5 +14,6 @@ sudo iwconfig
 sudo echo "auto wlp4s0" >> /etc/network/interfaces
 sudo echo "iface wlp4s0 inet dhcp" >> /etc/network/interfaces
 
+wpa_passphrase MYSSID MySecretPassphrase | grep -vE "{|#|}" | tr -d '\t' | sudo tee -a /etc/network/interfaces
 # Finally reboot the device and it should automatically be connected to the wifi network.
 sudo reboot
